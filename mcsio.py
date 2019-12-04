@@ -26,7 +26,7 @@ import urllib
 import json
 import Adafruit_DHT
 import RPi.GPIO as GPIO
-GOIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 deviceId = "D0k39k2H"
 deviceKey = "zGyzQBe0EnFUA3Ej" 
