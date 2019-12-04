@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 import time
+import sys
+import http.client as http
+import urllib
+import json
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(24, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -26,8 +30,10 @@ while True:
 	if(SwitchStatus == 0):
 		print('Button pressed')
 		payload={"datapoints":[{"dataChnId":"Switch","values":{"value":SwitchStatus}}]}
-		time.sleep(5)
+		post_to_mcs(payload)
+		time.sleep(10)
 	else:
 		print('Button released')
 		payload={"datapoints":[{"dataChnId":"Switch","values":{"value":SwitchStatus}}]}
-		time.sleep(5)
+		post_to_mcs(payload)
+		time.sleep(10)
